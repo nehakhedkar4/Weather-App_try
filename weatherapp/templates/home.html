@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div class="text-center bg-light p-5 rounded shadow mt-3">
+            <h1>Weather App</h1>
+        </div>
+        <div class="text-center bg-light p-4 rounded shadow mt-3">
+            <div class="container col-9 d-flex my-4">
+            <input class="form-control me-2" type="text" name="city" placeholder="Serach Your City">
+            <input class="btn btn-info" type="submit" value="Find" > 
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container mt-3">
+    {% if temp %}
+    <div class="container bg-light rounded shadow mt-2 d-flex">
+        <h5 class="p-4">{{city_name}} , {{country}}</h5>
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="dropdown p-4">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </div>   
+    </div>
+
+
+ 
+    <div class="row">
+        <div class="col bg-secondary rounded shadow p-3 m-2" id="bg">
+            <div class="text-light mt-1">
+                <div class="text-white-50">
+                    <strong><span>{% now "l" %}</span></strong><br>
+                    <span>{{date}}</span>
+                </div>
+                <div class="display-4">{{temp}}<sup>o</sup>C</div>
+                <span>
+                    <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt="" width=150>
+                </span><br>
+                <span class="p-3">{{description}}</span>
+            </div>
+        </div>
+            <div class="col bg-dark bg-opacity-75 rounded p-3 m-2" id="bg">
+                <div class="text-light mt-4">
+                    <div class="text-white-50 mb-6">
+                        <span>{{date1}}</span>
+                    </div>
+                    <div class="display-4">{{temp1}}<sup>o</sup>C</div>
+                    <span>
+                        <img src="http://openweathermap.org/img/wn/{{icon1}}@2x.png" alt="" width=150>
+                    </span><br>
+                    <span class="p-3">{{description1}}</span>
+                </div>
+            </div>
+            <div class="col bg-secondary rounded shadow p-3 m-2" id="bg">
+                <div class="text-light mt-4">
+                    <div class="text-white-50">
+                        <span>{{date2}}</span>
+                    </div>
+                    <div class="display-4">{{temp2}}<sup>o</sup>C</div>
+                    <span>
+                        <img src="http://openweathermap.org/img/wn/{{icon2}}@2x.png" alt="" width=150>
+                    </span><br>
+                    <span class="p-3">{{description2}}</span>
+                </div>
+            </div>
+        <div class="col bg-dark bg-opacity-75 rounded p-3 m-2" id="bg">
+            <div class="text-light mt-4">
+                <div class="text-white-50 mb-6">
+                    <span>{{date3}}</span>
+                </div>
+                <div class="display-4">{{temp3}}<sup>o</sup>C</div>
+                <span>
+                    <img src="http://openweathermap.org/img/wn/{{icon3}}@2x.png" alt="" width=150>
+                </span><br>
+                <span class="p-3">{{description3}}</span>
+            </div>
+        </div>
+            <div class="col bg-secondary rounded shadow p-3 m-2" id="bg">
+                <div class="text-light mt-4">
+                    <div class="text-white-50">
+                        <span>{{date4}}</span>
+                    </div>
+                    <div class="display-4">{{temp4}}<sup>o</sup>C</div>
+                    <span>
+                        <img src="http://openweathermap.org/img/wn/{{icon4}}@2x.png" alt="" width=150>
+                    </span><br>
+                    <span class="p-3">{{description4}}</span>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col bg-primary">
+dfg
+        </div>
+        <!-- <div class="col bg-secondary">
+            fdhg
+        </div> -->
+    </div>
+</div>
+    
+<!-- <style>
+    #n{
+        display: flex;
+    }
+</style> -->
+{% endblock content %}

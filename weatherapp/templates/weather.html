@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+    {% block title %} {{city_name}} {% endblock %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div class="text-center p-4 rounded shadow mt-3" style="background-color: #86cddd;">
+            <h1>Weather App</h1>
+        </div>
+        <div class="text-center bg-light p-3 rounded shadow mt-3">
+            <div class="container col-9 d-flex my-3">
+            <input class="form-control me-2" type="text" name="city" placeholder="Serach Your City">
+            <input class="btn btn-info" type="submit" value="Find" > 
+            </div>
+        </div>
+    </div>
+</form>
+
+    <!-- <div class="container bg-light rounded shadow mt-2 d-flex">
+        <h5 class="p-3">{{city_name}} , {{country}}</h5>
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="dropdown p-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </div>   
+    </div> -->
+<div class="container">
+{% if temp %}
+    <div class="p-3 text-white">
+        <div class="p-3 d-flex" style="background-color: #1a3e46;">
+            <h4>{{city_name}}, {{country}}</h4>
+        </div>
+        <div style="background-color: #55a3b4;" class="p-3">
+            <div class="p-3 col">
+                <h4>{{date}}</h4>
+                <h4 class="pr-10">{% now "l" %}</h4>
+                <h4>{{time}}</h4>
+                <div class="display-1">{{temp}}<sup>o</sup></div>
+                <img style="float: right; " src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt="" width=150>
+                <h4>{{description}}</h4>
+            </div>
+        </div>
+    </div>
+<!-- <div class="container row">
+    <div class="col-6">
+        <div class="p-3 text-white w-5000">
+            <div class="p-3 d-flex" style="background-color: #1a3e46;">
+                <h4>{{city_name}}, {{country}}</h4>
+                 <h4><a class="link-light float-right" href="">5 Days</a></h4> 
+            </div>
+            <div style="background-color: #55a3b4;" class="p-3">
+                <div class="p-3 col">
+                    <h4>{{date}}</h4>
+                    <h4 class="pr-10">{% now "l" %}</h4>
+                    <h4>{{time}}</h4>
+                    <div class="display-1">{{temp}}<sup>o</sup></div>
+                    <h4>{{description}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="col"></div> 
+    <div class="col-sm" width="auto">
+        <div class="float-right"><img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt="" width=318></div>
+    </div>
+</div> -->
+
+    
+    <div class="container row mt-2 shadow-sm rounded p-3" style="background-color: #86cddd;">
+        <strong class="text-dark"><p>Today's Forecast for {{city_name}}, {{country}}</p></strong>
+        <div class="col text-center text-secondary border-end">
+            <b><span>{{time1}}</span></b>
+            <div class="display-4 text-dark  ">{{temp1}}<sup>o</sup></div>
+            <span>
+                <img src="http://openweathermap.org/img/wn/{{icon1}}@2x.png" alt="" width=150>
+            </span><br>
+            <b><span class="p-3">{{description1}}</span></b>
+        </div>
+        <div class="col text-center text-secondary border-end">
+            <b><span>{{time2}}</span></b>
+            <div class="display-4 text-dark  ">{{temp2}}<sup>o</sup></div>
+            <span>
+                <img src="http://openweathermap.org/img/wn/{{icon2}}@2x.png" alt="" width=150>
+            </span><br>
+            <b><span class="p-3">{{description2}}</span></b>
+        </div>    
+        <div class="col text-center text-secondary border-end">
+            <b><span>{{time3}}</span></b>
+            <div class="display-4 text-dark  ">{{temp3}}<sup>o</sup></div>
+            <span>
+                <img src="http://openweathermap.org/img/wn/{{icon3}}@2x.png" alt="" width=150>
+            </span><br>
+            <b><span class="p-3">{{description3}}</span></b>
+        </div> 
+        <div class="col text-center text-secondary">
+            <b><span>{{time4}}</span></b>
+            <div class="display-4 text-dark  ">{{temp4}}<sup>o</sup></div>
+            <span>
+                <img src="http://openweathermap.org/img/wn/{{icon4}}@2x.png" alt="" width=150>
+            </span><br>
+            <b><span class="p-3">{{description4}}</span></b>
+        </div>    
+    </div>
+    <div class="conatiner mt-3 bg-light">
+        <table class="table table-striped" style="background-color: #86cddd;">
+            <tbody>
+                </thead>
+                <tr>
+                <th scope="row">{{date_1}}</th>
+                    <td>{{temp_1}}<sup>o</sup></td>
+                    <td>Humidity : {{humidity_1}}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{icon_1}}@2x.png" alt="" width=42> {{description_1}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{{date_2}}</th>
+                    <td>{{temp_2}}<sup>o</sup></td>
+                    <td>Humidity : {{humidity_2}}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{icon_2}}@2x.png" alt="" width=42> {{description_2}}</td>
+                </tr>
+                    <th scope="row">{{date_3}}</th>
+                    <td>{{temp_3}}<sup>o</sup></td>
+                    <td>Humidity : {{humidity_3}}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{icon_3}}@2x.png" alt="" width=42> {{description_3}}</td>
+                </tr>
+                    <th scope="row">{{date_4}}</th>
+                    <td>{{temp_4}}<sup>o</sup></td>
+                    <td>Humidity : {{humidity_4}}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{icon_4}}@2x.png" alt="" width=42> {{description_4}}</td>
+                </tr>
+                <th scope="row">{{date_5}}</th>
+                    <td>{{temp_5}}<sup>o</sup></td>
+                    <td>Humidity : {{humidity_5}}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{icon_5}}@2x.png" alt="" width=42> {{description_5}}</td>
+                </tr>   
+            </tbody>
+          </table>
+    </div>
+    
+{% endif %}
+</div>
+
+{% endblock content %}
+
+<!-- 68aab8 -->
+date temp icon desc
